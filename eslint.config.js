@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-require-imports */
 const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
 const eslintConfigPrettier = require("eslint-config-prettier");
-/* eslint-enable @typescript-eslint/no-var-requires */
+/* eslint-enable @typescript-eslint/no-require-imports */
 
 module.exports = tseslint.config(
   {
@@ -27,6 +27,7 @@ module.exports = tseslint.config(
   {
     ignores: [
       "node_modules/**",
+      "pnpm-lock.yaml",
       "cache/**",
       "cache-zk/**",
       "artifacts/**",

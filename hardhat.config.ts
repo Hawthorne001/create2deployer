@@ -59,11 +59,11 @@ const config: HardhatUserConfig = {
     },
   },
   zksolc: {
-    version: "1.4.1",
+    version: "1.5.11",
     compilerSource: "binary",
     settings: {
-      isSystem: false,
-      forceEvmla: false,
+      enableEraVMExtensions: false,
+      forceEVMLA: false,
       optimizer: {
         enabled: true,
         mode: "3",
@@ -80,7 +80,7 @@ const config: HardhatUserConfig = {
         url: process.env.ETH_MAINNET_URL || "",
         enabled: false,
       },
-      // zksync: true, // Enables zkSync in the Hardhat local network
+      // zksync: true, // Enables ZKsync in the Hardhat local network
     },
     localhost: {
       url: "http://127.0.0.1:8545",
@@ -368,6 +368,8 @@ const config: HardhatUserConfig = {
       zksync: true,
       verifyURL:
         "https://explorer.sepolia.era.zksync.dev/contract_verification",
+      browserVerifyURL: "https://sepolia.explorer.zksync.io",
+      enableVerifyURL: true,
     },
     zkSyncMain: {
       chainId: 324,
@@ -376,6 +378,8 @@ const config: HardhatUserConfig = {
       zksync: true,
       verifyURL:
         "https://zksync2-mainnet-explorer.zksync.io/contract_verification",
+      browserVerifyURL: "https://explorer.zksync.io",
+      enableVerifyURL: true,
     },
     mantleTestnet: {
       chainId: 5003,
@@ -456,7 +460,7 @@ const config: HardhatUserConfig = {
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
     mantaTestnet: {
-      chainId: 3441005,
+      chainId: 3441006,
       url: process.env.MANTA_TESTNET_URL || "",
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
@@ -641,6 +645,288 @@ const config: HardhatUserConfig = {
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
+    chilizTestnet: {
+      chainId: 88882,
+      url: process.env.CHILIZ_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    chilizMain: {
+      chainId: 88888,
+      url: process.env.CHILIZ_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    taraxaTestnet: {
+      chainId: 842,
+      url: process.env.TARAXA_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    taraxaMain: {
+      chainId: 841,
+      url: process.env.TARAXA_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    artheraMain: {
+      chainId: 10242,
+      url: process.env.ARTHERA_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    gravityAlphaTestnet: {
+      chainId: 13505,
+      url: process.env.GRAVITY_ALPHA_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    gravityAlphaMain: {
+      chainId: 1625,
+      url: process.env.GRAVITY_ALPHA_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    taikoTestnet: {
+      chainId: 167009,
+      url: process.env.TAIKO_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    taikoMain: {
+      chainId: 167000,
+      url: process.env.TAIKO_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    zetaChainTestnet: {
+      chainId: 7001,
+      url: process.env.ZETA_CHAIN_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    zetaChainMain: {
+      chainId: 7000,
+      url: process.env.ZETA_CHAIN_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    "5ireChainTestnet": {
+      chainId: 997,
+      url: process.env["5IRE_CHAIN_TESTNET_URL"] || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    "5ireChainMain": {
+      chainId: 995,
+      url: process.env["5IRE_CHAIN_MAINNET_URL"] || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    sapphireTestnet: {
+      chainId: 23295,
+      url: process.env.SAPPHIRE_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    sapphireMain: {
+      chainId: 23294,
+      url: process.env.SAPPHIRE_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    worldChainTestnet: {
+      chainId: 4801,
+      url: process.env.WORLD_CHAIN_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    worldChainMain: {
+      chainId: 480,
+      url: process.env.WORLD_CHAIN_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    plumeTestnet: {
+      chainId: 98864,
+      url: process.env.PLUME_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    plumeMain: {
+      chainId: 98865,
+      url: process.env.PLUME_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    unichainTestnet: {
+      chainId: 1301,
+      url: process.env.UNICHAIN_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    xdcTestnet: {
+      chainId: 51,
+      url: process.env.XDC_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    xdcMain: {
+      chainId: 50,
+      url: process.env.XDC_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    sxTestnet: {
+      chainId: 79479957,
+      url: process.env.SX_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    sxMain: {
+      chainId: 4162,
+      url: process.env.SX_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    liskTestnet: {
+      chainId: 4202,
+      url: process.env.LISK_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    liskMain: {
+      chainId: 1135,
+      url: process.env.LISK_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    metalL2Testnet: {
+      chainId: 1740,
+      url: process.env.METALL2_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    metalL2Main: {
+      chainId: 1750,
+      url: process.env.METALL2_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    superseedTestnet: {
+      chainId: 53302,
+      url: process.env.SUPERSEED_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    superseedMain: {
+      chainId: 5330,
+      url: process.env.SUPERSEED_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    storyTestnet: {
+      chainId: 1516,
+      url: process.env.STORY_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    sonicTestnet: {
+      chainId: 57054,
+      url: process.env.SONIC_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    sonicMain: {
+      chainId: 146,
+      url: process.env.SONIC_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    flowTestnet: {
+      chainId: 545,
+      url: process.env.FLOW_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    flowMain: {
+      chainId: 747,
+      url: process.env.FLOW_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    inkTestnet: {
+      chainId: 763373,
+      url: process.env.INK_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    inkMain: {
+      chainId: 57073,
+      url: process.env.INK_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    morphTestnet: {
+      chainId: 2810,
+      url: process.env.MORPH_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    morphMain: {
+      chainId: 2818,
+      url: process.env.MORPH_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    shapeTestnet: {
+      chainId: 11011,
+      url: process.env.SHAPE_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    shapeMain: {
+      chainId: 360,
+      url: process.env.SHAPE_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    etherlinkTestnet: {
+      chainId: 128123,
+      url: process.env.ETHERLINK_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    etherlinkMain: {
+      chainId: 42793,
+      url: process.env.ETHERLINK_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    soneiumTestnet: {
+      chainId: 1946,
+      url: process.env.SONEIUM_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    soneiumMain: {
+      chainId: 1868,
+      url: process.env.SONEIUM_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    swellTestnet: {
+      chainId: 1924,
+      url: process.env.SWELL_TESTNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+    swellMain: {
+      chainId: 1923,
+      url: process.env.SWELL_MAINNET_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
@@ -701,7 +987,7 @@ const config: HardhatUserConfig = {
       alfajores: process.env.CELO_API_KEY || "",
       // For Harmony testnet & mainnet
       harmony: process.env.HARMONY_API_KEY || "",
-      harmonyTest: process.env.HARMONY_API_KEY || "",
+      harmonyTestnet: process.env.HARMONY_API_KEY || "",
       // For Aurora testnet & mainnet
       aurora: process.env.AURORA_API_KEY || "",
       auroraTestnet: process.env.AURORA_API_KEY || "",
@@ -792,6 +1078,78 @@ const config: HardhatUserConfig = {
       // For Rootstock testnet & mainnet
       rootstock: process.env.ROOTSTOCK_API_KEY || "",
       rootstockTestnet: process.env.ROOTSTOCK_API_KEY || "",
+      // For Chiliz testnet & mainnet
+      chiliz: process.env.CHILIZ_API_KEY || "",
+      chilizTestnet: process.env.CHILIZ_API_KEY || "",
+      // For Arthera mainnet
+      arthera: process.env.ARTHERA_API_KEY || "",
+      // For Gravity Alpha testnet & mainnet
+      gravityAlpha: process.env.GRAVITY_ALPHA_API_KEY || "",
+      gravityAlphaTestnet: process.env.GRAVITY_ALPHA_API_KEY || "",
+      // For Taiko testnet & mainnet
+      taiko: process.env.TAIKO_API_KEY || "",
+      taikoTestnet: process.env.TAIKO_API_KEY || "",
+      // For ZetaChain testnet & mainnet
+      zetaChain: process.env.ZETA_CHAIN_API_KEY || "",
+      zetaChainTestnet: process.env.ZETA_CHAIN_API_KEY || "",
+      // For 5ireChain testnet & mainnet
+      "5ireChain": process.env["5IRE_CHAIN_API_KEY"] || "",
+      "5ireChainTestnet": process.env["5IRE_CHAIN_API_KEY"] || "",
+      // For Oasis Sapphire testnet & mainnet
+      sapphire: process.env.SAPPHIRE_API_KEY || "",
+      sapphireTestnet: process.env.SAPPHIRE_API_KEY || "",
+      // For World Chain testnet & mainnet
+      worldChain: process.env.WORLD_CHAIN_API_KEY || "",
+      worldChainTestnet: process.env.WORLD_CHAIN_API_KEY || "",
+      // For Plume testnet & mainnet
+      plume: process.env.PLUME_API_KEY || "",
+      plumeTestnet: process.env.PLUME_API_KEY || "",
+      // For Unichain testnet
+      unichainTestnet: process.env.UNICHAIN_API_KEY || "",
+      // For XDC testnet & mainnet
+      xdc: process.env.XDC_API_KEY || "",
+      xdcTestnet: process.env.XDC_API_KEY || "",
+      // For SX testnet & mainnet
+      sx: process.env.SX_API_KEY || "",
+      sxTestnet: process.env.SX_API_KEY || "",
+      // For ZKsync testnet & mainnet
+      zkSync: process.env.ZKSYNC_API_KEY || "",
+      zkSyncTestnet: process.env.ZKSYNC_API_KEY || "",
+      // For Lisk testnet & mainnet
+      lisk: process.env.LISK_API_KEY || "",
+      liskTestnet: process.env.LISK_API_KEY || "",
+      // For Metal L2 testnet & mainnet
+      metalL2: process.env.METALL2_API_KEY || "",
+      metalL2Testnet: process.env.METALL2_API_KEY || "",
+      // For Superseed testnet & mainnet
+      superseed: process.env.SUPERSEED_API_KEY || "",
+      superseedTestnet: process.env.SUPERSEED_API_KEY || "",
+      // For Story testnet
+      storyTestnet: process.env.STORY_API_KEY || "",
+      // For Sonic testnet & mainnet
+      sonic: process.env.SONIC_API_KEY || "",
+      sonicTestnet: process.env.SONIC_API_KEY || "",
+      // For EVM on Flow testnet & mainnet
+      flow: process.env.FLOW_API_KEY || "",
+      flowTestnet: process.env.FLOW_API_KEY || "",
+      // For Ink testnet & mainnet
+      ink: process.env.INK_API_KEY || "",
+      inkTestnet: process.env.INK_API_KEY || "",
+      // For Morph testnet & mainnet
+      morph: process.env.MORPH_API_KEY || "",
+      morphTestnet: process.env.MORPH_API_KEY || "",
+      // For Shape testnet & mainnet
+      shape: process.env.SHAPE_API_KEY || "",
+      shapeTestnet: process.env.SHAPE_API_KEY || "",
+      // For Etherlink testnet & mainnet
+      etherlink: process.env.ETHERLINK_API_KEY || "",
+      etherlinkTestnet: process.env.ETHERLINK_API_KEY || "",
+      // For Soneium testnet & mainnet
+      soneium: process.env.SONEIUM_API_KEY || "",
+      soneiumTestnet: process.env.SONEIUM_API_KEY || "",
+      // For Swellchain testnet & mainnet
+      swell: process.env.SWELL_API_KEY || "",
+      swellTestnet: process.env.SWELL_API_KEY || "",
     },
     customChains: [
       {
@@ -870,8 +1228,8 @@ const config: HardhatUserConfig = {
         network: "evmos",
         chainId: 9001,
         urls: {
-          apiURL: "https://escan.live/api",
-          browserURL: "https://escan.live",
+          apiURL: "https://api.verify.mintscan.io/evm/api/0x2329",
+          browserURL: "https://www.mintscan.io/evmos",
         },
       },
       {
@@ -960,16 +1318,16 @@ const config: HardhatUserConfig = {
         network: "mantle",
         chainId: 5000,
         urls: {
-          apiURL: "https://explorer.mantle.xyz/api",
-          browserURL: "https://explorer.mantle.xyz",
+          apiURL: "https://api.mantlescan.xyz/api",
+          browserURL: "https://mantlescan.xyz",
         },
       },
       {
         network: "mantleTestnet",
         chainId: 5003,
         urls: {
-          apiURL: "https://explorer.sepolia.mantle.xyz/api",
-          browserURL: "https://explorer.sepolia.mantle.xyz",
+          apiURL: "https://api-sepolia.mantlescan.xyz/api",
+          browserURL: "https://sepolia.mantlescan.xyz",
         },
       },
       {
@@ -1094,10 +1452,10 @@ const config: HardhatUserConfig = {
       },
       {
         network: "mantaTestnet",
-        chainId: 3441005,
+        chainId: 3441006,
         urls: {
-          apiURL: "https://pacific-explorer.testnet.manta.network/api",
-          browserURL: "https://pacific-explorer.testnet.manta.network",
+          apiURL: "https://pacific-explorer.sepolia-testnet.manta.network/api",
+          browserURL: "https://pacific-explorer.sepolia-testnet.manta.network",
         },
       },
       {
@@ -1316,6 +1674,400 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://rootstock-testnet.blockscout.com/api",
           browserURL: "https://rootstock-testnet.blockscout.com",
+        },
+      },
+      {
+        network: "chiliz",
+        chainId: 88888,
+        urls: {
+          apiURL:
+            "https://api.routescan.io/v2/network/mainnet/evm/88888/etherscan/api",
+          browserURL: "https://chiliscan.com",
+        },
+      },
+      {
+        network: "chilizTestnet",
+        chainId: 88882,
+        urls: {
+          apiURL:
+            "https://api.routescan.io/v2/network/testnet/evm/88882/etherscan/api",
+          browserURL: "https://testnet.chiliscan.com",
+        },
+      },
+      {
+        network: "harmony",
+        chainId: 1666600000,
+        urls: {
+          apiURL: "https://explorer.harmony.one/api",
+          browserURL: "https://explorer.harmony.one",
+        },
+      },
+      {
+        network: "harmonyTestnet",
+        chainId: 1666700000,
+        urls: {
+          apiURL: "https://explorer.testnet.harmony.one/api",
+          browserURL: "https://explorer.testnet.harmony.one",
+        },
+      },
+      {
+        network: "arthera",
+        chainId: 10242,
+        urls: {
+          apiURL: "https://explorer.arthera.net/api",
+          browserURL: "https://explorer.arthera.net",
+        },
+      },
+      {
+        network: "gravityAlpha",
+        chainId: 1625,
+        urls: {
+          apiURL: "https://explorer.gravity.xyz/api",
+          browserURL: "https://explorer.gravity.xyz",
+        },
+      },
+      {
+        network: "gravityAlphaTestnet",
+        chainId: 13505,
+        urls: {
+          apiURL: "https://explorer-sepolia.gravity.xyz/api",
+          browserURL: "https://explorer-sepolia.gravity.xyz",
+        },
+      },
+      {
+        network: "taiko",
+        chainId: 167000,
+        urls: {
+          apiURL: "https://api.taikoscan.io/api",
+          browserURL: "https://taikoscan.io",
+        },
+      },
+      {
+        network: "taikoTestnet",
+        chainId: 167009,
+        urls: {
+          apiURL: "https://api-hekla.taikoscan.io/api",
+          browserURL: "https://hekla.taikoscan.io",
+        },
+      },
+      {
+        network: "zetaChain",
+        chainId: 7000,
+        urls: {
+          apiURL: "https://zetachain.blockscout.com/api",
+          browserURL: "https://zetachain.blockscout.com",
+        },
+      },
+      {
+        network: "zetaChainTestnet",
+        chainId: 7001,
+        urls: {
+          apiURL: "https://zetachain-athens-3.blockscout.com/api",
+          browserURL: "https://zetachain-athens-3.blockscout.com",
+        },
+      },
+      {
+        network: "5ireChain",
+        chainId: 995,
+        urls: {
+          apiURL: "https://5irescan.io/api",
+          browserURL: "https://5irescan.io",
+        },
+      },
+      {
+        network: "5ireChainTestnet",
+        chainId: 997,
+        urls: {
+          apiURL: "https://testnet.5irescan.io/api",
+          browserURL: "https://testnet.5irescan.io",
+        },
+      },
+      {
+        network: "sapphire",
+        chainId: 23294,
+        urls: {
+          apiURL: "https://explorer.oasis.io/mainnet/sapphire/api",
+          browserURL: "https://explorer.oasis.io/mainnet/sapphire",
+        },
+      },
+      {
+        network: "sapphireTestnet",
+        chainId: 23295,
+        urls: {
+          apiURL: "https://explorer.oasis.io/testnet/sapphire/api",
+          browserURL: "https://explorer.oasis.io/testnet/sapphire",
+        },
+      },
+      {
+        network: "worldChain",
+        chainId: 480,
+        urls: {
+          apiURL: "https://worldchain-mainnet.explorer.alchemy.com/api",
+          browserURL: "https://worldchain-mainnet.explorer.alchemy.com",
+        },
+      },
+      {
+        network: "worldChainTestnet",
+        chainId: 4801,
+        urls: {
+          apiURL: "https://worldchain-sepolia.explorer.alchemy.com/api",
+          browserURL: "https://worldchain-sepolia.explorer.alchemy.com",
+        },
+      },
+      {
+        network: "plume",
+        chainId: 98865,
+        urls: {
+          apiURL: "https://explorer.plumenetwork.xyz/api",
+          browserURL: "https://explorer.plumenetwork.xyz",
+        },
+      },
+      {
+        network: "plumeTestnet",
+        chainId: 98864,
+        urls: {
+          apiURL: "https://test-explorer.plumenetwork.xyz/api",
+          browserURL: "https://test-explorer.plumenetwork.xyz",
+        },
+      },
+      {
+        network: "unichainTestnet",
+        chainId: 1301,
+        urls: {
+          apiURL: "https://api-sepolia.uniscan.xyz/api",
+          browserURL: "https://sepolia.uniscan.xyz",
+        },
+      },
+      {
+        network: "xdc",
+        chainId: 50,
+        urls: {
+          apiURL: "https://api.xdcscan.com/api",
+          browserURL: "https://xdcscan.com",
+        },
+      },
+      {
+        network: "xdcTestnet",
+        chainId: 51,
+        urls: {
+          apiURL: "https://api-testnet.xdcscan.com/api",
+          browserURL: "https://testnet.xdcscan.com",
+        },
+      },
+      {
+        network: "sx",
+        chainId: 4162,
+        urls: {
+          apiURL: "https://explorerl2.sx.technology/api",
+          browserURL: "https://explorerl2.sx.technology",
+        },
+      },
+      {
+        network: "sxTestnet",
+        chainId: 79479957,
+        urls: {
+          apiURL: "https://explorerl2.toronto.sx.technology/api",
+          browserURL: "https://explorerl2.toronto.sx.technology",
+        },
+      },
+      {
+        network: "zkSync",
+        chainId: 324,
+        urls: {
+          apiURL: "https://api-era.zksync.network/api",
+          browserURL: "https://era.zksync.network",
+        },
+      },
+      {
+        network: "zkSyncTestnet",
+        chainId: 300,
+        urls: {
+          apiURL: "https://api-sepolia-era.zksync.network/api",
+          browserURL: "https://sepolia-era.zksync.network",
+        },
+      },
+      {
+        network: "lisk",
+        chainId: 1135,
+        urls: {
+          apiURL: "https://blockscout.lisk.com/api",
+          browserURL: "https://blockscout.lisk.com",
+        },
+      },
+      {
+        network: "liskTestnet",
+        chainId: 4202,
+        urls: {
+          apiURL: "https://sepolia-blockscout.lisk.com/api",
+          browserURL: "https://sepolia-blockscout.lisk.com",
+        },
+      },
+      {
+        network: "metalL2",
+        chainId: 1750,
+        urls: {
+          apiURL: "https://explorer.metall2.com/api",
+          browserURL: "https://explorer.metall2.com",
+        },
+      },
+      {
+        network: "metalL2Testnet",
+        chainId: 1740,
+        urls: {
+          apiURL: "https://testnet.explorer.metall2.com/api",
+          browserURL: "https://testnet.explorer.metall2.com",
+        },
+      },
+      {
+        network: "superseed",
+        chainId: 5330,
+        urls: {
+          apiURL: "https://explorer.superseed.xyz/api",
+          browserURL: "https://explorer.superseed.xyz",
+        },
+      },
+      {
+        network: "superseedTestnet",
+        chainId: 53302,
+        urls: {
+          apiURL: "https://sepolia-explorer.superseed.xyz/api",
+          browserURL: "https://sepolia-explorer.superseed.xyz",
+        },
+      },
+      {
+        network: "storyTestnet",
+        chainId: 1516,
+        urls: {
+          apiURL: "https://odyssey.storyscan.xyz/api",
+          browserURL: "https://odyssey.storyscan.xyz",
+        },
+      },
+      {
+        network: "sonic",
+        chainId: 146,
+        urls: {
+          apiURL: "https://api.sonicscan.org/api",
+          browserURL: "https://sonicscan.org",
+        },
+      },
+      {
+        network: "sonicTestnet",
+        chainId: 57054,
+        urls: {
+          apiURL: "https://api-testnet.sonicscan.org/api",
+          browserURL: "https://testnet.sonicscan.org",
+        },
+      },
+      {
+        network: "flow",
+        chainId: 747,
+        urls: {
+          apiURL: "https://evm.flowscan.io/api",
+          browserURL: "https://evm.flowscan.io",
+        },
+      },
+      {
+        network: "flowTestnet",
+        chainId: 545,
+        urls: {
+          apiURL: "https://evm-testnet.flowscan.io/api",
+          browserURL: "https://evm-testnet.flowscan.io",
+        },
+      },
+      {
+        network: "ink",
+        chainId: 57073,
+        urls: {
+          apiURL: "https://explorer.inkonchain.com/api",
+          browserURL: "https://explorer.inkonchain.com",
+        },
+      },
+      {
+        network: "inkTestnet",
+        chainId: 763373,
+        urls: {
+          apiURL: "https://explorer-sepolia.inkonchain.com/api",
+          browserURL: "https://explorer-sepolia.inkonchain.com",
+        },
+      },
+      {
+        network: "morph",
+        chainId: 2818,
+        urls: {
+          apiURL: "https://explorer.morphl2.io/api",
+          browserURL: "https://explorer.morphl2.io",
+        },
+      },
+      {
+        network: "morphTestnet",
+        chainId: 2810,
+        urls: {
+          apiURL: "https://explorer-holesky.morphl2.io/api",
+          browserURL: "https://explorer-holesky.morphl2.io",
+        },
+      },
+      {
+        network: "shape",
+        chainId: 360,
+        urls: {
+          apiURL: "https://shapescan.xyz/api",
+          browserURL: "https://shapescan.xyz",
+        },
+      },
+      {
+        network: "shapeTestnet",
+        chainId: 11011,
+        urls: {
+          apiURL: "https://explorer-sepolia.shape.network/api",
+          browserURL: "https://explorer-sepolia.shape.network",
+        },
+      },
+      {
+        network: "etherlink",
+        chainId: 42793,
+        urls: {
+          apiURL: "https://explorer.etherlink.com/api",
+          browserURL: "https://explorer.etherlink.com",
+        },
+      },
+      {
+        network: "etherlinkTestnet",
+        chainId: 128123,
+        urls: {
+          apiURL: "https://testnet.explorer.etherlink.com/api",
+          browserURL: "https://testnet.explorer.etherlink.com",
+        },
+      },
+      {
+        network: "soneium",
+        chainId: 1868,
+        urls: {
+          apiURL: "https://soneium.blockscout.com/api",
+          browserURL: "https://soneium.blockscout.com",
+        },
+      },
+      {
+        network: "soneiumTestnet",
+        chainId: 1946,
+        urls: {
+          apiURL: "https://soneium-minato.blockscout.com/api",
+          browserURL: "https://soneium-minato.blockscout.com",
+        },
+      },
+      {
+        network: "swell",
+        chainId: 1923,
+        urls: {
+          apiURL: "https://explorer.swellnetwork.io/api",
+          browserURL: "https://explorer.swellnetwork.io",
+        },
+      },
+      {
+        network: "swellTestnet",
+        chainId: 1924,
+        urls: {
+          apiURL: "https://swell-testnet-explorer.alt.technology/api",
+          browserURL: "https://swell-testnet-explorer.alt.technology",
         },
       },
     ],
